@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="title">
+      <h1>Typing Game</h1>
+      <div class="marker"></div>
+    </div>
+    <button v-if="startFlg != true" class="startButton mb-20" v-on:click="gameStart">START</button>
+    <div v-if="startFlg">
+      <div class="question mb-20">{{ currentQuestion }}</div>
+      <div v-if="currentQuestionCounts == questionCounts" class="clear">Clear!</div>
+      <div class="typeFormWrapper mb-20">
+        <input  id="typeForm" type="text" class="typeForm" v-model="typeBox">
+      </div>
+      <div class="gaugeWrapper mb-20">
+        <div v-bind:style="styleObject" class="gauge"></div>
+      </div>
+      <div>{{  currentQuestionCounts }}/5</div>
+    </div>
+  </div>
+<script src="main.js"></script>
+</body>
+</html>
